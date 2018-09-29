@@ -5,9 +5,9 @@ module.exports = {
   entry: "./public/App.js",
   devtool: "cheap-eval-source-map",
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: './public'
+    publicPath: './dist'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json']
@@ -18,11 +18,17 @@ module.exports = {
     chunks: true
   },
   devServer: {
-    contentBase: '/',
     port: 3000
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'script-loader'
+        }
+      }
     ]
   }
 }
