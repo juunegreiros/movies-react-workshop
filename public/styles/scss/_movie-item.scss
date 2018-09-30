@@ -47,7 +47,7 @@
   }
 
   &__note {
-    background-image: url('./assets/images/favorites.svg');
+    background-image: url('/assets/images/favorites.svg');
     background-repeat: no-repeat;
     background-size: contain;
     display: block;
@@ -61,7 +61,7 @@
   }
 
   &__adult {
-    background-image: url('./assets/images/favorites.svg');
+    background-image: url('/assets/images/favorites.svg');
     background-repeat: no-repeat;
     display: block;
     height: 1.75rem;

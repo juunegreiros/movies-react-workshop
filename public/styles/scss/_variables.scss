@@ -1,11 +1,11 @@
 @fontface {
   font-family: 'Roboto';
-  src: url('../../assets/fonts/Roboto/RobotoRegular.ttf');
+  src: url('/assets/fonts/Roboto/RobotoRegular.ttf');
 }
 
 @fontface {
   font-family: 'Luckiest Guy';
-  src: url('../../assets/fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf');
+  src: url('/assets/fonts/LuckiestGuy/LuckiestGuy-Regular.ttf');
 }
 
 $primary-font: 'Roboto', sans-serif;

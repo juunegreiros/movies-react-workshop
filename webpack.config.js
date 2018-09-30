@@ -23,10 +23,35 @@ module.exports = {
     port: 3000,
     historyApiFallback: true,
     compress: true,
-    hot: true
+    hot: true,
+    contentBase: 'dist/',
+    publicPath: 'dist/',
+    inline: true,
   },
   module: {
     rules: [
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'assets/images'
+          }
+        }]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'assets/fonts'
+          }
+        }],
+      },
       {
         test: /\.js/,
         exclude: /node_modules/,
@@ -47,6 +72,9 @@ module.exports = {
           },
           {
             loader: "css-loader"
+          },
+          {
+            loader: 'resolve-url-loader',
           },
           {
             loader: "sass-loader"
