@@ -10,6 +10,10 @@
 
 `cd movies-react-workshop`
 
+### Acessar a branch de setup-inicial
+
+`git checkout setup-inicial`
+
 ### Instalar as dependências do projeto
 
 `npm install`

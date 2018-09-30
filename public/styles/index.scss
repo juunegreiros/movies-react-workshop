@@ -1,0 +1,12 @@
+@import './scss/_variables';
+@import './scss/_reset';
+@import './scss/_title';
+@import './scss/_movie-item';
+@import './scss/_movies';
+@import './scss/_search';
+
+body {
+  background-color: $light;
+  color: $dark;
+  font-family: $primary-font;
+}
