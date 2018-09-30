@@ -1,62 +1,49 @@
-const path = require('path'),
-  webpack = require('webpack'),
-  HtmlWebpackPlugin = require('html-webpack-plugin')
+// webpack v4
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  context: __dirname,
-  entry: "./public/App.js",
-  devtool: "cheap-eval-source-map",
+  entry: { main: './public/App.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].[hash].js',
   },
-  resolve: {
-    extensions: ['.js', '.jsx', '.json']
-  },
-  stats: {
-    colors: true,
-    reasons: true,
-    chunks: true
-  },
+  devtool: 'inline-source-map',
   devServer: {
-    port: 3000,
-    historyApiFallback: true,
-    compress: true,
-    hot: true
+    contentBase: './dist',
+    open: true,
+    hot: true,
   },
   module: {
     rules: [
       {
-        test: /\.js/,
-        exclude: /node_modules/,
-        use: [{
-            loader: 'babel-loader'
-        }]
-      },
-      {
-        enforce: "pre",
         test: /\.js$/,
-        loader: "source-map-loader"
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader"
-          },
-          {
-            loader: "sass-loader"
-          }
-        ]
-      }
-    ]
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
+    ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'index.html') }),
-    new webpack.HotModuleReplacementPlugin()
-  ]
-}
+    new CleanWebpackPlugin('dist', {}),
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './public/index.html',
+      filename: 'index.html',
+    }),
+    new WebpackMd5Hash(),
+  ],
+};
