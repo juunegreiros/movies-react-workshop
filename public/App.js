@@ -1,12 +1,14 @@
-import './styles/index.scss'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const title = 'hello world'
+import './styles/index.scss';
 
-function sayHello() {
-  setTimeout(() => {
-    console.log(title)
-    sayHello()
-  },3000)
+class App extends React.Component {
+  render() {
+    return <h1> Hello, world! </h1>
+  }
 }
 
-sayHello()
+const rootElement = document.getElementById('root');
+
+ReactDOM.render(<App />, rootElement);
