@@ -1,3 +1,12 @@
-const title = 'hello world';
+import './styles/index.scss'
 
-console.log(title)
+const title = 'hello world'
+
+function sayHello() {
+  setTimeout(() => {
+    console.log(title)
+    sayHello()
+  },3000)
+}
+
+sayHello()
