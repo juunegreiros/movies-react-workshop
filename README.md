@@ -12,7 +12,7 @@
 
 ### Acessar a branch de setup-inicial
 
-`git checkout setup-inicial`
+`git checkout config-inicial`
 
 ### Instalar as dependências do projeto
 

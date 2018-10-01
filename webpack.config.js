@@ -5,7 +5,7 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: { main: './public/App.js' },
+  entry: { main: './public/App.jsx' },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].js',
@@ -19,7 +19,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx|json)$/,
+        resolve: {
+          extensions: ['.js', '.jsx'],
+        },
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -28,12 +31,47 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'postcss-loader',
+          },
+          {
+            loader: 'resolve-url-loader',
+          },
+          {
+            loader: 'sass-loader',
+          }
         ],
       },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/fonts'
+            }
+          }
+        ]
+      }
     ],
   },
   plugins: [
