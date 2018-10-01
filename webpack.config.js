@@ -5,7 +5,7 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: { main: './public/App.js' },
+  entry: { main: './public/App.jsx' },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].js',
@@ -19,7 +19,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx|json)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
