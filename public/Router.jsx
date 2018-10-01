@@ -1,11 +1,10 @@
 import React from 'react';
-import getGenres from './services/genres/getGenres.jsx'
+import Movies from './containers/Movies';
 
 class Router extends React.Component {
 
   render() {
-    getGenres('1123')
-    return <h1> Hello, asds! </h1>
+    return <Movies></Movies>
   }
 }
 
