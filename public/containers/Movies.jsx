@@ -29,7 +29,7 @@ class Movies extends React.Component {
       <div>
         <h1 className="main-title">My Movies</h1>
 
-        <ul data-container="movies" className="movies-container">
+        <ul className="movies-container">
           {this.state.movies.map(movie => {
             return <li>
               {movie.title}

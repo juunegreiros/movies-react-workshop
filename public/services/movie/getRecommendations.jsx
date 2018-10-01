@@ -1,4 +1,4 @@
-import movieDB, { key } from '../api.jsx';
+import movieDB, { key } from '../api';
 
 export default id =>
   movieDB
