@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from './Router.jsx';
+import Router from './Router';
 
 import './styles/index.scss';
 import './assets/fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf';

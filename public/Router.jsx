@@ -1,11 +1,17 @@
 import React from 'react';
-import getGenres from './services/genres/getGenres.jsx'
+import MovieItem from './components/movies/movieItem';
 
 class Router extends React.Component {
 
   render() {
-    getGenres('1123')
-    return <h1> Hello, asds! </h1>
+    return(
+      <MovieItem
+        image="/lJChjsNR7O1waqsOIqlkePoGtZJ.jpg"
+        title="auhauah"
+        vote="2.3"
+        overview="ahsuijdoiasjodiajiojdioasjdoiajsoidjiaosjdoasjodijasoi"
+      />
+    )
   }
 }
 
