@@ -1,0 +1,43 @@
+.search-container {
+  align-itens: center;
+  display: flex;
+  justify-content: center;
+
+  &__input {
+    background-color: $secondary-color;
+    border: darken($secondary-color, 30) 2px solid;
+    border-radius: 0.25rem;
+    color: $light;
+    font-size: 1.25rem;
+    margin: 0.5rem;
+    padding: 1rem;
+    transition: all 0.2s;
+
+    &:focus {
+      background-color: darken($secondary-color, 5);
+      box-shadow: 0 0 2px 1px darken($secondary-color, 20);
+      outline: none;
+    }
+  }
+
+  &__button {
+    background-color: darken($secondary-color, 20);
+    border: $secondary-color 2px solid;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    color: $light;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0.5rem;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    padding: 1rem;
+
+    &:hover {
+      background-color: $secondary-color;
+      color: $light;
+      border-color: darken($secondary-color, 20);
+    }
+  }
+}

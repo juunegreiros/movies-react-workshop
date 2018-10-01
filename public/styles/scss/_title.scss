@@ -1,0 +1,12 @@
+.main-title {
+  color: $primary-color;
+  font-family: $secondary-font;
+  font-size: 5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+
+  @media (max-width: 800px) {
+    font-size: 4rem;
+  }
+}

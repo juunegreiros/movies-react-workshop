@@ -20,6 +20,9 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx|json)$/,
+        resolve: {
+          extensions: ['.js', '.jsx'],
+        },
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -28,12 +31,47 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'postcss-loader',
+          },
+          {
+            loader: 'resolve-url-loader',
+          },
+          {
+            loader: 'sass-loader',
+          }
         ],
       },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/fonts'
+            }
+          }
+        ]
+      }
     ],
   },
   plugins: [

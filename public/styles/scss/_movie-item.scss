@@ -1,0 +1,71 @@
+.movie-item {
+  background-color: $intermediate;
+  box-shadow: 0 0 8px rgba($black, 0.5);
+  cursor: pointer;
+  display: flex;
+  height: 250px;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  width: calc(33.33% - 1rem);
+
+  @media (max-width: 1200px) {
+    width: calc(50% - 1rem);
+  }
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+
+  &__image {
+    height: 100%;
+    object-fit: cover;
+    width: 200px;
+  }
+
+  &__info {
+    margin: 1rem;
+    overflow-y: scroll;
+  }
+
+  &__title {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.25rem;
+    text-align: center;
+  }
+
+  &__overview {
+    margin-left: 0.25rem;
+    margin-right: 0.75rem;
+    text-align: justify;
+  }
+
+  &__icons {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__note {
+    background-image: url('https://uploads.codesandbox.io/uploads/user/67a7f0b8-e03f-4c52-adc1-676e861082be/Plwz-favorites.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    height: 2.5rem;
+    font-size: 0.75rem;
+    font-family: Luckiest Guy;
+    line-height: 2.5rem;
+    text-align: center;
+    vertical-align: middle;
+    width: 2.5rem;
+  }
+
+  &__adult {
+    background-image: url('https://uploads.codesandbox.io/uploads/user/67a7f0b8-e03f-4c52-adc1-676e861082be/rB-v-plus-18-movie.svg');
+    background-repeat: no-repeat;
+    display: block;
+    height: 1.75rem;
+    width: 1.75rem;
+  }
+}
+  
