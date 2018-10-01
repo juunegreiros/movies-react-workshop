@@ -1,0 +1,25 @@
+$black: #000;
+$dark: #605856;
+$intermediate: #d0ccd0;
+$light: #fbfcff;
+$primary-color: #1c6e8c;
+$secondary-color: #274156;
+$white: #fff;
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/Roboto-Regular.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/Roboto-Bold.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Luckiest Guy';
+  src: url('/assets/fonts/LuckiestGuy-Regular.ttf');
+}
+
+$primary-font: 'Roboto', sans-serif;
+$secondary-font: 'Luckiest Guy', cursive;
