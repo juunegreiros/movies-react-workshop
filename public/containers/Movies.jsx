@@ -29,10 +29,15 @@ class Movies extends React.Component {
   }
 
   searchAndFilterMovies() {
-    searchMovies(this.state.searchTerm)
-      .then(data => {
-        this.setState({filteredMovies: data.results})
-      })
+    if(this.state.searchTerm){
+      console.log(this.state)
+      searchMovies(this.state.searchTerm)
+        .then(data => {
+          this.setState({filteredMovies: data.results})
+        })
+    } else {
+      this.setState({filteredMovies: this.state.movies})
+    }
   }
 
   handleSubmit(e) {
@@ -52,13 +57,13 @@ class Movies extends React.Component {
         <h1 className="main-title">My Movies</h1>
 
         <form
-          class="search-container"
+          className="search-container"
           data-form="search"
           onSubmit={this.handleSubmit.bind(this)}>
           <input
             type="text"
             name="query"
-            class="search-container__input"
+            className="search-container__input"
             onKeyUp={this.handleTyping.bind(this)}
           >
           </input>
