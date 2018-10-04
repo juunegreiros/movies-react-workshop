@@ -1,0 +1,62 @@
+.movie-detail {
+  &__container {
+    display: flex;
+    font-family: $primary-font;
+  }
+
+  &__image {
+    height: 100vh;
+  }
+
+  &__info {
+    margin: 2rem;
+  }
+
+  &__title {
+    color: $primary-color;
+    font-family: $secondary-font;
+    font-size: 2rem;
+  }
+
+  &__genre {
+    background-color: $secondary-color;
+    border-radius: 30px;
+    color: $white;
+    padding: .5rem 1.5rem;
+
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
+  }
+
+  &__overview {
+    font-size: 1.25rem;
+    margin: 3rem 0;
+  }
+
+  &__trivia {
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  &__subtitle {
+    color: $primary-color;
+    font-family: $secondary-font;
+    font-size: 1.5rem;
+  }
+
+  &__productors {
+    list-style-type: none;
+  }
+
+  &__productor-logo {
+    display: inline-block;
+  }
+
+  &__productor-name {
+    font-size: 1rem;
+    display: inline-block;
+    margin-left: 1rem;
+    font-weight: 700;
+  }
+}

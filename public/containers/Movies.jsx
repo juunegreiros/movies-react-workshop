@@ -64,6 +64,7 @@ export default class Movies extends React.Component {
               return (
                 <MovieItem
                   key={index}
+                  movieId={movie.id}
                   image={movie.poster_path}
                   title={movie.title}
                   vote={movie.vote_average}
