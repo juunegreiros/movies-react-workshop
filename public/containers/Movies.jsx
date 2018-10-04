@@ -9,6 +9,7 @@ export default class Movies extends React.Component {
     super(props);
     this.state = {
       movies: [],
+      filteredMovies: [],
       searchTerm: ''
     };
   }
@@ -20,7 +21,7 @@ export default class Movies extends React.Component {
   popularMovies() {
     getPopularMovies()
       .then(response => {
-        this.setState({movies: response});
+        this.setState({movies: response, filteredMovies: response});
       })
       .catch(err => {console.log(err)});
   }
@@ -28,15 +29,19 @@ export default class Movies extends React.Component {
   searchAndFilterMovies(searchTerm) {
     searchMovies(searchTerm)
       .then(response => {
-        this.setState({movies: response})
+        this.setState({filteredMovies: response});
       })
       .catch(err => {console.log(err)})
   }
 
   handleTyping(e) {
-    this.setState({searchTerm: e.target.value}, () => {
-      this.searchAndFilterMovies(this.state.searchTerm)
-    })
+    if(e.target.value) {
+      this.setState({searchTerm: e.target.value}, () => {
+        this.searchAndFilterMovies(this.state.searchTerm);
+      });
+    } else {
+      this.setState({filteredMovies: this.state.movies});
+    }
   }
 
   render() {
@@ -55,7 +60,7 @@ export default class Movies extends React.Component {
 
         <ul className="movies-container">
           {
-            this.state.movies.map((movie, index) => {
+            this.state.filteredMovies.map((movie, index) => {
               return (
                 <MovieItem
                   key={index}
